@@ -1,6 +1,5 @@
 package com.springboot.controller;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -9,11 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.util.Assert;
-
-import static org.hamcrest.CoreMatchers.is;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -70,5 +64,12 @@ public class AgricultureControllerTest {
         //获取返回结果
         String content = mvcResult.getResponse().getContentAsString();
         System.out.println(content);
+    }
+
+    @Test
+    public void startTest() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/sensor?topic=soil_moisture")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
     }
 }

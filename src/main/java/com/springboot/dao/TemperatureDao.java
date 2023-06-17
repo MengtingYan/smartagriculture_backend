@@ -5,7 +5,6 @@ import com.springboot.mapper.TemperaturePoMapper;
 import com.springboot.mapper.po.TemperaturePo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ public class TemperatureDao {
     }
 
     private Temperature getBo(TemperaturePo po){
-        Temperature bo=Temperature.builder().id(po.getId()).value(po.getValue()).build();
+        Temperature bo=Temperature.builder().id(po.getId()).tem(po.getTem()).build();
         return bo;
     }
 

@@ -8,15 +8,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "temperature")
+@Table(name = "light_intensity")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TemperaturePo {
+public class LightIntensityPo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Float tem;
+    private Long light;
 }

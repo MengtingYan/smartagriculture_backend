@@ -8,7 +8,7 @@ import lombok.*;
 @ToString(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Temperature {
+public class SoilPh {
 
     @Setter
     @Getter
@@ -16,11 +16,11 @@ public class Temperature {
 
     @Getter
     @Setter
-    private float tem;
+    private float ph;
 
     @Builder
-    public Temperature(Long id,Float tem){
-       this.id = id;
-       this.tem = tem;
+    public SoilPh(Long id, Float ph){
+        this.id = id;
+        this.ph = ph;
     }
 }

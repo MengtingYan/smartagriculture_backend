@@ -24,14 +24,51 @@ public class AgricultureControllerTest {
 
     @Test
     public void getTemperaturesTest() throws Exception{
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/temperatures").accept(MediaType.APPLICATION_JSON_UTF8)).andReturn();
-
-        //获取返回编码
-        int status = mvcResult.getResponse().getStatus();
-
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/temperatures")
+                .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
         //获取返回结果
         String content = mvcResult.getResponse().getContentAsString();
+        System.out.println(content);
+    }
 
+    @Test
+    public void getAirHumiditiesTest() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/humidities")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        //获取返回结果
+        String content = mvcResult.getResponse().getContentAsString();
+        System.out.println(content);
+    }
+
+    @Test
+    public void getLightIntensitiesTest() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/intensities")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        //获取返回结果
+        String content = mvcResult.getResponse().getContentAsString();
+        System.out.println(content);
+    }
+
+    @Test
+    public void getSoilMoisturesTest() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/moistures")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        //获取返回结果
+        String content = mvcResult.getResponse().getContentAsString();
+        System.out.println(content);
+    }
+
+    @Test
+    public void getSoilPhsTest() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/agriculture/phs")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+        //获取返回结果
+        String content = mvcResult.getResponse().getContentAsString();
         System.out.println(content);
     }
 }

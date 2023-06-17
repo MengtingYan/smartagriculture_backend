@@ -1,8 +1,7 @@
 package com.springboot.controller;
 
-import com.springboot.dao.bo.Temperature;
 import com.springboot.service.AgricultureService;
-import com.springboot.service.dto.TemperatureDto;
+import com.springboot.service.dto.*;
 import model.ReturnNo;
 import model.ReturnObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +25,30 @@ public class AgricultureController {
     @GetMapping("/temperatures")
     public ReturnObject getTemperatures(){
         List<TemperatureDto> ret=this.agricultureService.retrieveTemperatures();
+        return new ReturnObject(ReturnNo.OK,ret);
+    }
+
+    @GetMapping("/humidities")
+    public ReturnObject getAirHumidities(){
+        List<AirHumidityDto> ret=this.agricultureService.retrieveHumidities();
+        return new ReturnObject(ReturnNo.OK,ret);
+    }
+
+    @GetMapping("/intensities")
+    public ReturnObject getLightIntensities(){
+        List<LightIntensityDto> ret=this.agricultureService.retrieveIntensities();
+        return new ReturnObject(ReturnNo.OK,ret);
+    }
+
+    @GetMapping("/moistures")
+    public ReturnObject getSoilMoistures(){
+        List<SoilMoistureDto> ret=this.agricultureService.retrieveMoistures();
+        return new ReturnObject(ReturnNo.OK,ret);
+    }
+
+    @GetMapping("/phs")
+    public ReturnObject getSoilPhs(){
+        List<SoilPhDto> ret=this.agricultureService.retrievePhs();
         return new ReturnObject(ReturnNo.OK,ret);
     }
 }
